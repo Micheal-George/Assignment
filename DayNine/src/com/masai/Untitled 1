@@ -1,0 +1,3 @@
+Multiple inheritance is not supported in JAVA because of the following reasons 
+  1: To reduce the complexity & simplify the language 
+  2: JAVA render compile time error when we call to class at a time

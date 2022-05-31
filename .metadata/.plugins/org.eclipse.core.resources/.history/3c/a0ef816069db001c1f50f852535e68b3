@@ -1,0 +1,37 @@
+package com.Masai;
+
+import java.util.Scanner;
+
+public class BankAccountDetails {
+
+
+	public Account getAccountDetails() {
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter account id:");
+		int id=scan.nextInt();
+		System.out.println("Enter account type:");
+		String type=scan.next();
+		System.out.println("Enter account balance:");
+		int balance=scan.nextInt();
+		Account Ac=new Account(id,type,balance);
+		Ac.show();
+		return Ac;
+	}
+
+
+
+	public static void main(String[] args) {
+		
+		
+		BankAccountDetails B =new BankAccountDetails();
+		B.getAccountDetails();
+		
+
+		
+		
+		
+			
+
+	}
+
+}

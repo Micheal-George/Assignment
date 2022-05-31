@@ -1,0 +1,27 @@
+package com.masai;
+public class Students{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+  
+
+
+//Instance variables:
+
+//Provide suitable constructors, and following methods:
+//: void
+//private calculateGrade(): char
+//
+
+//
+//Override the toString() method to print all the details of Student class.
+//inside the displayDetails() method, create the Student class object by taking (roll, name,
+//marks ) from the user and call the calculateGrade() method to get the Grade of the
+//Student.
+//
+//Create another class Demo in which create two Student objects, and invoke the
+//displayDetails(). It should also display the student grade.

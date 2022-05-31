@@ -1,0 +1,40 @@
+package com.Masai;
+
+public class InheritanceJava {
+
+public static void main(String[] args) {
+	
+	Member M= new Member("micheal",25,"8574","adfsdfsdf",2500.00);
+
+}
+}
+
+class Member{
+	String Name;
+	int Age ;
+String 	Phone_number ;
+	 String Address;
+	 double Salary ;
+	 public Member(String Name,int Age,String 	Phone_number, String Address,double Salary)
+	 {
+		 this.Name=Name;
+		 this.Age=Age;
+		 this.Phone_number=Phone_number;
+		 this.Address=Address;
+		 this.Salary=Salary;
+	 }
+	 
+	 
+	 void printSalary() {
+		 System.out.println(Salary);
+	 }
+	 
+	 
+	 class Employee extends Member{
+		
+		 
+	 }
+
+
+
+
