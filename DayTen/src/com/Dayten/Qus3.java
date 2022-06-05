@@ -1,5 +1,21 @@
-package com.Dayten;
+/*
 
-public class Qus3 {
 
-}
+A class that is declared as abstract is called Abstract class.
+Abstract class can have constructors and static method
+Abstract class can have both normal and abstract method
+Abstract class does not have any meaning until it is extended by the child class
+its object cannot create directly
+it achieves partial abstraction 
+Child class of Abstract class must override all the abstract method in the parent class
+
+Interface is a blueprint of java class declared with keyword interface
+Interface have static constants and abstract methods
+Interface can have only 
+
+
+
+
+
+
+*/
