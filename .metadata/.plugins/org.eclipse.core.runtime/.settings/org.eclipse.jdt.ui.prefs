@@ -1,4 +1,4 @@
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="com.Eval3.Employee"><rhs name\="com.Eval3.TemporaryEmployee"/></lhs><lhs name\="com.Eval3.TemporaryEmployee"><rhs name\="com.Eval3.TemporaryEmployee"/></lhs><lhs name\="java.lang.Exception"><rhs name\="InvalidAge"/></lhs><lhs name\="java.lang.Throwable"><rhs name\="InvalidAge"/></lhs><lhs name\="InvalidAge"><rhs name\="InvalidAge"/></lhs><lhs name\="EmployeeBonus"><rhs name\="EmployeeBonus"/></lhs><lhs name\="com.masai.PlayList"><rhs name\="com.masai.PlayList"/></lhs><lhs name\="com.masai.Song"><rhs name\="com.masai.Song"/></lhs></history>
 content_assist_number_of_computers=15
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0

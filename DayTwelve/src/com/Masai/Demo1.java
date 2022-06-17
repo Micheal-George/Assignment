@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class Demo1 {
 
 	public boolean validate(String name, String mobileNum, String aadharCard) {
-		if(Pattern.matches("[a-z]{3,8}",name))
+		if(Pattern.matches("[a-zA-Z]{3,8}",name))
 		{
 			if(Pattern.matches("[6-9]{1}[0-9]{9}",mobileNum))
 			{
@@ -35,7 +35,7 @@ public class Demo1 {
 		
 		Demo1 D=new Demo1();
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Ener Name");
+		System.out.println("Enter Name");
 		String name=sc.next();
 		
 		System.out.println("Ener Mobile Number");
