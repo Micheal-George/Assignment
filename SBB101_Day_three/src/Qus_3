@@ -1,0 +1,6 @@
+Transient Keyword
+
+This keyword is applicable only for the variables
+variable with this keyword will not serialize
+ 
+
