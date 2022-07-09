@@ -1,0 +1,134 @@
+qus-----1
+
+
+mysql> select * from student;
++------+--------+------------+-------------+-------+
+| S_ID | S_NAME | S_ADDRESS  | S_PHONE     | S_AGE |
++------+--------+------------+-------------+-------+
+| S1   | RAM    | DELHI      |  9455123451 |    18 |
+| S2   | RAMESH | GURGAON    | 9652431543  |    18 |
+| S3   | SUJIT  | Chandigarh | 9156253131  |    20 |
+| S4   | SURESH | DELHI      | 9156768971  |    18 |
+| S5   | Ratan  | Delhi      | 9567890876  |    20 |
++------+--------+------------+-------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from course;
++------+--------+
+| C_ID | C_NAME |
++------+--------+
+| C1   | DSA    |
+| C2   | JAVA   |
+| C3   | MERN   |
++------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from students__courses;
++------+------+
+| S_ID | C_ID |
++------+------+
+| S1   | C1   |
+| S1   | C3   |
+| S2   | C1   |
+| S3   | C2   |
+| S4   | C2   |
+| S4   | C3   |
+| S5   | C2   |
++------+------+
+7 rows in set (0.00 sec)
+
+mysql> select s.S_ID,s.S_NAME,s.S_ADDRESS,s.S_PHONE,s.S_AGE from student s INNER JOIN students__courses  sc ON s.S_ID=sc.S_ID  INNER JOIN course c ON c.C_ID=sc.C_ID where S_ADDRESS="DELHI" AND C_NAME="JAVA";
++------+--------+-----------+------------+-------+
+| S_ID | S_NAME | S_ADDRESS | S_PHONE    | S_AGE |
++------+--------+-----------+------------+-------+
+| S4   | SURESH | DELHI     | 9156768971 |    18 |
+| S5   | Ratan  | Delhi     | 9567890876 |    20 |
++------+--------+-----------+------------+-------+
+2 rows in set (0.00 sec)
+
+
+QUS-----2
+mysql> select * from movie;
++----+-----------------+-----------------+------+----------------+
+| id | title           | Director        | year | length_minutes |
++----+-----------------+-----------------+------+----------------+
+|  1 | Toy Story       | John Lasseter   | 1995 | 81             |
+|  2 | A Bug's Life    | John Lasseter   | 1998 | 95             |
+|  3 | Toy Story 2     | John Lasseter   | 1999 | 93             |
+|  4 | Monsters        | Pete Docter     | 2001 | 92             |
+|  5 | Civil War       | Andrew Stanton  | 2003 | 107            |
+|  6 | The Incredibles | Brad Bird       | 2004 | 116            |
++----+-----------------+-----------------+------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from movie_rating;
++-----------+--------+----------------+---------------------+
+| emovie_id | rating | domestic_sales | international_sales |
++-----------+--------+----------------+---------------------+
+|         5 |    8.2 |      380843261 |           555900000 |
+|         1 |    7.4 |      268492764 |           475066843 |
+|         3 |      8 |      206445654 |           417277164 |
+|         2 |    6.4 |      191452396 |           368400000 |
+|         4 |    7.9 |      245852179 |           239163000 |
+|         6 |      8 |      261441092 |           370001000 |
++-----------+--------+----------------+---------------------+
+6 rows in set (0.01 sec)
+
+mysql> select m.title,mr.domestic_sales,international_sales from movie m , Movie_Rating mr where m.id=mr.emovie_id AND mr.domestic_sales<mr.international_sales;
++-----------------+----------------+---------------------+
+| title           | domestic_sales | international_sales |
++-----------------+----------------+---------------------+
+| Civil War       |      380843261 |           555900000 |
+| Toy Story       |      268492764 |           475066843 |
+| Toy Story 2     |      206445654 |           417277164 |
+| A Bug's Life    |      191452396 |           368400000 |
+| The Incredibles |      261441092 |           370001000 |
++-----------------+----------------+---------------------+
+5 rows in set (0.00 sec)
+mysql>  select title,rating from movie  , Movie_Rating where  movie.id=Movie_Rating.emovie_id  ORDER BY rating;
++-----------------+--------+
+| title           | rating |
++-----------------+--------+
+| A Bug's Life    |    6.4 |
+| Toy Story       |    7.4 |
+| Monsters        |    7.9 |
+| Toy Story 2     |      8 |
+| The Incredibles |      8 |
+| Civil War       |    8.2 |
++-----------------+--------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+QUS___3
+mysql> select * from person;
++----------+----------+-----------+
+| personId | lastName | firstName |
++----------+----------+-----------+
+|        1 | Wang     | Allen     |
+|        2 | Alice    | Bob       |
++----------+----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from address;
++-----------+----------+---------------+------------+
+| addressId | personId | city          | state      |
++-----------+----------+---------------+------------+
+|         1 |        2 | New York City | New York   |
+|         2 |        3 | San Diego     | California |
++-----------+----------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select firstName ,lastName,city , state from person p LEFT JOIN address a ON p.personID=a.personID;
++-----------+----------+---------------+----------+
+| firstName | lastName | city          | state    |
++-----------+----------+---------------+----------+
+| Allen     | Wang     | NULL          | NULL     |
+| Bob       | Alice    | New York City | New York |
++-----------+----------+---------------+----------+
+2 rows in set (0.00 sec)

@@ -1,0 +1,26 @@
+mysql> select * from person;
++----------+----------+-----------+
+| personId | lastName | firstName |
++----------+----------+-----------+
+|        1 | Wang     | Allen     |
+|        2 | Alice    | Bob       |
++----------+----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from address;
++-----------+----------+---------------+------------+
+| addressId | personId | city          | state      |
++-----------+----------+---------------+------------+
+|         1 |        2 | New York City | New York   |
+|         2 |        3 | San Diego     | California |
++-----------+----------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select firstName ,lastName,city , state from person p LEFT JOIN address a ON p.personID=a.personID;
++-----------+----------+---------------+----------+
+| firstName | lastName | city          | state    |
++-----------+----------+---------------+----------+
+| Allen     | Wang     | NULL          | NULL     |
+| Bob       | Alice    | New York City | New York |
++-----------+----------+---------------+----------+
+2 rows in set (0.00 sec)

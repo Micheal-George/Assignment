@@ -1,0 +1,45 @@
+
+mysql> select * from student;
++------+--------+------------+-------------+-------+
+| S_ID | S_NAME | S_ADDRESS  | S_PHONE     | S_AGE |
++------+--------+------------+-------------+-------+
+| S1   | RAM    | DELHI      |  9455123451 |    18 |
+| S2   | RAMESH | GURGAON    | 9652431543  |    18 |
+| S3   | SUJIT  | Chandigarh | 9156253131  |    20 |
+| S4   | SURESH | DELHI      | 9156768971  |    18 |
+| S5   | Ratan  | Delhi      | 9567890876  |    20 |
++------+--------+------------+-------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from course;
++------+--------+
+| C_ID | C_NAME |
++------+--------+
+| C1   | DSA    |
+| C2   | JAVA   |
+| C3   | MERN   |
++------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from students__courses;
++------+------+
+| S_ID | C_ID |
++------+------+
+| S1   | C1   |
+| S1   | C3   |
+| S2   | C1   |
+| S3   | C2   |
+| S4   | C2   |
+| S4   | C3   |
+| S5   | C2   |
++------+------+
+7 rows in set (0.00 sec)
+
+mysql> select s.S_ID,s.S_NAME,s.S_ADDRESS,s.S_PHONE,s.S_AGE from student s INNER JOIN students__courses  sc ON s.S_ID=sc.S_ID  INNER JOIN course c ON c.C_ID=sc.C_ID where S_ADDRESS="DELHI" AND C_NAME="JAVA";
++------+--------+-----------+------------+-------+
+| S_ID | S_NAME | S_ADDRESS | S_PHONE    | S_AGE |
++------+--------+-----------+------------+-------+
+| S4   | SURESH | DELHI     | 9156768971 |    18 |
+| S5   | Ratan  | Delhi     | 9567890876 |    20 |
++------+--------+-----------+------------+-------+
+2 rows in set (0.00 sec)

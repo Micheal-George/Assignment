@@ -1,0 +1,137 @@
+
+question -1
+-------------
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+----------------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address        | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+----------------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad(HYD) | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi(DEL )    | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai(BOM)    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad(HYD) | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore      | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+----------------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+----------
+
+mysql> select * from employee where Department="HR";
++-------+----------+----------+------------+---------+----------------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department | Project | Address        | DOB        | Gender | Salary |
++-------+----------+----------+------------+---------+----------------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR         | P1      | Hyderabad(HYD) | 01/12/1976 | M      |  50000 |
+|     4 | Sonia    | Kulkarni | HR         | P3      | Hyderabad(HYD) | 02/05/1992 | F      |  50000 |
++-------+----------+----------+------------+---------+----------------+------------+--------+--------+
+2 rows in set (0.11 sec)
+
+---------
+mysql> select count(EmpID) from employee where Gender="F";
++--------------+
+| count(EmpID) |
++--------------+
+|            3 |
++--------------+
+1 row in set (0.00 sec)
+-------------------------------------
+
+mysql> select * from employee where Gender="F"  AND  Department="HR";
++-------+----------+----------+------------+---------+----------------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department | Project | Address        | DOB        | Gender | Salary |
++-------+----------+----------+------------+---------+----------------+------------+--------+--------+
+|     4 | Sonia    | Kulkarni | HR         | P3      | Hyderabad(HYD) | 02/05/1992 | F      |  50000 |
++-------+----------+----------+------------+---------+----------------+------------+--------+--------+
+1 row in set (0.00 sec)
+----------------------------------------
+
+mysql> select EmpFname,EmpLname from employee where  substr(EmpFname,1,1) IN('A','E','I','O','U');
++----------+----------+
+| EmpFname | EmpLname |
++----------+----------+
+| Ananya   | Mishra   |
++----------+----------+
+1 row in set (0.00 sec)
+
+------------------------------------------
+mysql> select EmpFname,EmpLname from employee where Gender="M" AND  substr(EmpFname,2,1) IN('A','E','I','O','U');
++----------+----------+
+| EmpFname | EmpLname |
++----------+----------+
+| Sanjay   | Mehra    |
+| Rohan    | Diwan    |
++----------+----------+
+2 rows in set (0.00 sec)
+-------------------------------------------
+
+
+mysql> select Department from employee group by Department;
++-------------+
+| Department  |
++-------------+
+| HR          |
+| Admin       |
+| Account     |
+| Development |
++-------------+
+4 rows in set (0.00 sec)
+-------------------------------------------
+
+mysql> select * from employee where Gender="F"  AND  Salary<75000;
++-------+----------+----------+------------+---------+----------------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department | Project | Address        | DOB        | Gender | Salary |
++-------+----------+----------+------------+---------+----------------+------------+--------+--------+
+|     4 | Sonia    | Kulkarni | HR         | P3      | Hyderabad(HYD) | 02/05/1992 | F      |  50000 |
++-------+----------+----------+------------+---------+----------------+------------+--------+--------+
+1 row in set (0.00 sec)
+
+-------------------------------------------
+
+mysql> select count( EmpID) from employee where Salary>=50000  AND  Salary<=100000;
++---------------+
+| count( EmpID) |
++---------------+
+|             5 |
++---------------+
+
+-------------------------------------------
+
+
+mysql> select project,count( EmpID) from employee group by project;
++---------+---------------+
+| project | count( EmpID) |
++---------+---------------+
+| P1      |             2 |
+| P2      |             2 |
+| P3      |             1 |
++---------+---------------+
+3 rows in set (0.00 sec)
+
+--------------------------------------------
+
+mysql> select department,count( EmpID) from employee group by department;
++-------------+---------------+
+| department  | count( EmpID) |
++-------------+---------------+
+| HR          |             2 |
+| Admin       |             1 |
+| Account     |             1 |
+| Development |             1 |
++-------------+---------------+
+4 rows in set (0.00 sec)
+
+
+
+question 2
+----------------
+
+1. What is the difference between a Unique Key and Primary Key?
+
+Unique Key:- if we use Unique Key in a column then duplicate values are nit permitted, can insert null value multiple times
+
+Primary Key:- if we use Unique Key in a column then value cannot be duplicate and null
+
+
+2.SQL is a case-sensitive language. (True or False)
+False
+
+

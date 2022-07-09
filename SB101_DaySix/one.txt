@@ -1,0 +1,146 @@
+
+question 1
+-----------
+
+
+mysql> select * from faculty;
++-----------+---------+------------------+--------+--------+---------------+
+| FacultyID | Name    | Department       | Gender | Salary | Working_hours |
++-----------+---------+------------------+--------+--------+---------------+
+|         1 | Aakash  | computer science | M      |  50000 |            45 |
+|         2 | Sahil   | EC               | M      |  25000 |            50 |
+|         3 | John    | HSS              | M      | 100000 |            60 |
+|         4 | Shelley | computer science | F      |  75000 |            80 |
+|         5 | Anannya | computer science | F      |  45000 |           100 |
+|         6 | Sia     | HSS              | F      |  60000 |            40 |
++-----------+---------+------------------+--------+--------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> update faculty set Department="Electronics and Communication" where Department="ec";
+ERROR 1406 (22001): Data too long for column 'Department' at row 2
+
+mysql> update faculty set Department="Electronics and Communication" where Department="ec";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update faculty set Department="Humanities and Social Sciences" where Department="hss";
+Query OK, 2 rows affected (0.32 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from faculty;
++-----------+---------+--------------------------------+--------+--------+---------------+
+| FacultyID | Name    | department                     | Gender | Salary | Working_hours |
++-----------+---------+--------------------------------+--------+--------+---------------+
+|         1 | Aakash  | computer science               | M      |  50000 |            45 |
+|         2 | Sahil   | Electronics and Communication  | M      |  25000 |            50 |
+|         3 | John    | Humanities and Social Sciences | M      | 100000 |            60 |
+|         4 | Shelley | computer science               | F      |  75000 |            80 |
+|         5 | Anannya | computer science               | F      |  45000 |           100 |
+|         6 | Sia     | Humanities and Social Sciences | F      |  60000 |            40 |
++-----------+---------+--------------------------------+--------+--------+---------------+
+6 rows in set (0.00 sec)
+
+
+mysql> update faculty set vacation_hour="not allowed" where working_hours<=50;
+Query OK, 3 rows affected (0.12 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update faculty set vacation_hour="20" where working_hours>50 AND working_hours<=80;
+Query OK, 2 rows affected (0.15 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update faculty set vacation_hour="40" where working_hours>80 AND working_hours<=120;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+question 2
+-----------
+
+
+mysql> select * from faculty;
++-----------+---------+--------------------------------+--------+--------+---------------+---------------+
+| FacultyID | Name    | department                     | Gender | Salary | Working_hours | vacation_hour |
++-----------+---------+--------------------------------+--------+--------+---------------+---------------+
+|         1 | Aakash  | computer science               | M      |  50000 |            45 | not allowed   |
+|         2 | Sahil   | Electronics and Communication  | M      |  25000 |            50 | 20|
+|         3 | John    | Humanities and Social Sciences | M      | 100000 |            60 | 20            |
+|         4 | Shelley | computer science               | F      |  75000 |            80 | 20            |
+|         5 | Anannya | computer science               | F      |  45000 |           100 | 40            |
+|         6 | Sia     | Humanities and Social Sciences | F      |  60000 |            40 | not allowed   |
++-----------+---------+--------------------------------+--------+--------+---------------+---------------+
+6 rows in set (0.00 sec)
+
+
+
+question 3
+-----------
+Primary Key:-The PRIMARY KEY constraint uniquely identifies each record in a table. Primary keys must contain UNIQUE values, and cannot contain NULL values. A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple columns
+
+candidate key:-Candidate key is a single key or a group of multiple keys that uniquely identify rows in a table. A Candidate key is a subset of Super keys and is devoid of any unnecessary attributes that are not important for uniquely identifying tuples. The value for the Candidate key is unique and non-null for all tuples.
+
+prime attribute :-Those attribute that are part of candidate key 
+
+Non prime attribute:- those key that are not part of the candidate key
+
+
+question 4
+-----------
+mysql> select * from student;
++------------+---------+---------+
+| student_id | name    | address |
++------------+---------+---------+
+|       1001 | mike    | kerala  |
+|       1002 | shameem | bengal  |
+|       1003 | jozf    | delhi   |
+|       1004 | zac     | pune    |
+|       1005 | mathew  | mumbai  |
++------------+---------+---------+
+
+mysql> select * from marks;
++----------+---------+-------+------------+
+| marks_id | subject | score | student_id |
++----------+---------+-------+------------+
+|        1 | phy     |   800 |       1001 |
+|        2 | math    |   700 |       1001 |
+|        3 | phy     |   900 |       1002 |
+|        4 | math    |   600 |       1002 |
+|        5 | phy     |   800 |       1003 |
+|        6 | math    |   600 |       1003 |
+|        7 | math    |     0 |       1004 |
+|        8 | phy     |     0 |       1004 |
+|        9 | phy     |   900 |       1005 |
+|       10 | math    |     0 |       1005 |
++----------+---------+-------+------------+
+10 rows in set (0.00 sec)
+
+
+mysql> select * from marks;
++----------+---------+-------+------------+
+| marks_id | subject | score | student_id |
++----------+---------+-------+------------+
+|        1 | phy     |   800 |       1001 |
+|        2 | math    |   700 |       1001 |
+|        3 | phy     |   900 |       1002 |
+|        4 | math    |   600 |       1002 |
+|        5 | phy     |   800 |       1003 |
+|        6 | math    |   600 |       1003 |
+|        7 | math    |    -1 |       1004 |
+|        8 | phy     |    -1 |       1004 |
+|        9 | phy     |   900 |       1005 |
+|       10 | math    |    -1 |       1005 |
++----------+---------+-------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select s. student_id ,s.name , sum(m.score) from student s INNER JOIN marks m ON m.student_id=s.student_id GROUP BY s.student_id;
++------------+---------+--------------+
+| student_id | name    | sum(m.score) |
++------------+---------+--------------+
+|       1001 | mike    |         1500 |
+|       1002 | shameem |         1500 |
+|       1003 | jozf    |         1400 |
+|       1004 | zac     |           -2 |
+|       1005 | mathew  |          899 |
++------------+---------+--------------+
+5 rows in set (0.11 sec)
+
