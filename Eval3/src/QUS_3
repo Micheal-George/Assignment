@@ -1,0 +1,10 @@
+Question 3
+--------------------------
+
+-Complex to concatenate dynamic variable in statement object. But with the help of placeholder it is simple in 
+prepare statement
+
+-statement object is faster than prepare statement
+
+-same set of operations were repeated in statement object will executing a query. but it is not in case of
+ prepare statement 

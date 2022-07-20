@@ -15,11 +15,9 @@
     <fullyQualifiedTypeName name="com.Masai.InvalidCountryException"/>
     <fullyQualifiedTypeName name="java.time.temporal.ChronoUnit"/>
     <fullyQualifiedTypeName name="EmployeeBonus"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="com.Masai.InvalidAge"/>
     <fullyQualifiedTypeName name="InvalidAge"/>
     <fullyQualifiedTypeName name="com.masai.PlayList"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.masai.Song"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
@@ -37,7 +35,24 @@
     <fullyQualifiedTypeName name="java.nio.file.Path"/>
     <fullyQualifiedTypeName name="java.nio.file.Files"/>
     <fullyQualifiedTypeName name="java.nio.file.Paths"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.Connection.Connect"/>
+    <fullyQualifiedTypeName name="com.Connection.ConnectSql"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.Exception.EmployeeException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.Bean.Employee"/>
+    <fullyQualifiedTypeName name="com.masai.Dao.empDao"/>
+    <fullyQualifiedTypeName name="com.masai.Dao.empDaoIMPL"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="com.connection.connector"/>
+    <fullyQualifiedTypeName name="com.dao.empDao"/>
+    <fullyQualifiedTypeName name="com.dao.empdaoImpl"/>
+    <fullyQualifiedTypeName name="com.bean.Employee"/>
+    <fullyQualifiedTypeName name="com.EmployeeException.EmployeeException"/>
 </qualifiedTypeNameHistroy>

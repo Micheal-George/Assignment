@@ -1,0 +1,19 @@
+mysql> select * from masai;
++-------------+------------+----------------+------------+
+| employee_id | name       | job_title      | reports_to |
++-------------+------------+----------------+------------+
+|           1 | arjun      | Vice president |       NULL |
+|           2 | abhinav    | IA             |          1 |
+|           3 | shivam     | IA             |          1 |
+|           4 | rajashekar | IA             |          1 |
++-------------+------------+----------------+------------+
+4 rows in set (0.12 sec)
+mysql> select e1.name masai,e1.job_title, e2.name manager from masai e1,masai e2 where e1.reports_to=e2.employee_id ;
++------------+-----------+---------+
+| masai      | job_title | manager |
++------------+-----------+---------+
+| abhinav    | IA        | arjun   |
+| shivam     | IA        | arjun   |
+| rajashekar | IA        | arjun   |
++------------+-----------+---------+
+3 rows in set (0.04 sec)

@@ -1,0 +1,28 @@
+question 2
+-------------------------
+
+In order to execute SQL after statement object we need different methods .
+They are:
+
+  executeUpdate()
+  ---------------
+    public int executeUpdate(String dml) thorws SQLexception;
+    
+        -it will return the number of rows affected by the SQL statement.If it is 0 no statement affected
+        -DML are [create,update,delete]
+        -if we use DML inside statement then we have to use this method
+    
+ executeQuery()
+  ---------------
+    public ResultSet executeQuery(String drl) thorws SQLexception;
+    
+        -it will return the Resultset
+        -DRL are [select]
+        -if we use DRL inside statement then we have to use this method
+        
+   execute()
+  ---------------
+    public ResultSet execute(String anySql) thorws SQLexception;
+    
+         -it will return boolean 
+         -using this method we can execute any type of SQL statements like[DML,DRL,DDL,TCL]
