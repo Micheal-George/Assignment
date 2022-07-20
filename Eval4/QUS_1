@@ -1,0 +1,9 @@
+QUS_1
+____________________
+
+-Hybernate is more easy to use for programmers than JDBC
+-hyberbate will execute sql queryies by itself,whithout writing specific sql queries
+-Hybernate will not throw as much error as JDBC throw
+-hybernate is user friendly than JDBC
+
+

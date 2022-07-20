@@ -1,0 +1,30 @@
+question 2:
+---------------------
+
+Layered Architecture
+----------
+---it helps to maintain and retreive data easily
+
+---Able to process the data according to the business rule or according to needs .
+
+---it helps to present data in an understandable way to the user.[user friendly]
+
+===================================================================================
+
+
+
+
+Explain difference between JPA and Hibernate:
+---------------------------------------------
+
+
+JPA:- (Java persistence api) :- it is  to develop any ORM based software
+JPA - belongs from "javax.persistence" package.
+
+
+
+
+Hibernate:- it is one of the Object Related Mapping based framework software
+Hibernate is used for  implementing JPA
+Hibernate api comes in the form of "org.hibernate" package.
+
