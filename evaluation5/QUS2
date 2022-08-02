@@ -1,0 +1,21 @@
+Qusetion---2
+____________________
+
+
+ORM in hibernate
+   Hibernate is one of the ORM based framework software and one of the most used JPA implementation .
+   Hibernate provides its own api to develop ORM based persistence logic
+   
+   
+   Cascade
+    If we use cascading option, once we persist the parent object automatically all the child
+     object also should be persisted eg:(cascade= CascadeType.ALL)
+     we have to give this annotation above child object
+     
+   @mappedBy
+      When we are handling JPA relationship there will be chance of creating an extra table to maintain the
+      relationship b/w the existing tables. so instead of using 3rd table use the existing table refernce we use
+       "mappedBy" property inside the @OneToMany annotation with the value:- the variable defined in another side.
+      
+    
+     

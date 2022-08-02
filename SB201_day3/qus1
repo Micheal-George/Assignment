@@ -1,0 +1,28 @@
+
+
+a) @Service
+   It indicates that this class is a service layer class which means, this class contains the main
+   business logic.
+   
+b) @component
+If we are not able to identify a class, from which layer it belongs then we can apply
+@Component annotation on the top of that class.
+
+c) @Autowired
+This annotation we can apply on the fields/variable or the setter method or on the
+constructor
+of a spring bean.
+The variable on which we apply the @Autowired annotation must be a reference type
+variable. not the primitive variable.
+
+d) @Component Scan
+In component auto-scanning container will register a class as a spring bean with the class
+name (starting with a small letter ) as its id.
+
+e) @Bean
+While auto-scanning, when container encounters with @Bean annotated method, it will
+call that method and register the returned object with the spring container by the id as
+the method name itself.
+
+f) @value
+This annotation is used to inject simple values type variables

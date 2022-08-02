@@ -1,0 +1,11 @@
+Question -1
+________________
+
+
+
+The ORm software performs lazy loading by default that means while loading object the parent level data only will loaded
+child level data will not loaded without calling it and if we try to access child level data it will thow exception .
+To overcome this problem we can over come by eager loading method .For that we have to use
+(fetch=FetchType.EAGER) in the embaded table
+
+
