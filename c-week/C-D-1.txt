@@ -1,0 +1,370 @@
+
+                                                    1
+-----------------------------------------------------------------------------
+mysql> select * from deposit;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 100   | anil    | vrce      |  10000 | 1995-03-01 |
+| 101   | sunil   | mgroad    |   5000 | 1996-01-04 |
+| 102   | rahul   | karolbagh |   3500 | 1995-11-17 |
+| 103   | madhuri | chandni   |   1200 | 1995-12-17 |
+| 104   | pramod  | mgroad    |   3000 | 1996-03-27 |
+| 105   | sandip  | karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.02 sec)
+
+mysql> select * from branch;
++----------+----------+
+| BNAME    | CITY     |
++----------+----------+
+| vrce     | nagpur   |
+| karolbag | delhi    |
+| chandni  | delhi    |
+| mgroad   | banglore |
++----------+----------+
+4 rows in set (0.01 sec)
+
+mysql> select * from customer;
++---------+----------+
+| CNAME   | CITY     |
++---------+----------+
+| anil    | calcutta |
+| rahul   | baroda   |
+| madhuri | nagpur   |
+| pramod  | nagpur   |
+| sunil   | delhi    |
++---------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from borrow;
++--------+---------+-----------+--------+
+| LOANNO | CNAME   | BNAME     | AMOUNT |
++--------+---------+-----------+--------+
+| 201    | anil    | vrce      |  10000 |
+| 206    | rahul   | karolbagh |   5000 |
+| 311    | sunil   | mgroad    |   3000 |
+| 321    | madhuri | chandni   |   2000 |
+| 375    | pramod  | chandni   |   8000 |
++--------+---------+-----------+--------+
+5 rows in set (0.00 sec)
+
+4)
+mysql> select * from borrow where amount BETWEEN 2000 AND 3000;
++--------+---------+---------+--------+
+| LOANNO | CNAME   | BNAME   | AMOUNT |
++--------+---------+---------+--------+
+| 311    | sunil   | mgroad  |   3000 |
+| 321    | madhuri | chandni |   2000 |
++--------+---------+---------+--------+
+
+5)
+mysql> select * from deposit;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 100   | anil    | vrce      |  10000 | 1995-03-01 |
+| 101   | sunil   | mgroad    |   5000 | 1996-01-04 |
+| 102   | rahul   | karolbagh |   3500 | 1995-11-17 |
+| 103   | madhuri | chandni   |   1200 | 1995-12-17 |
+| 104   | pramod  | mgroad    |   3000 | 1996-03-27 |
+| 105   | sandip  | karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.02 sec)
+
+
+6)
+mysql> select cname,actno from deposit;
++---------+-------+
+| cname   | actno |
++---------+-------+
+| anil    | 100   |
+| sunil   | 101   |
+| rahul   | 102   |
+| madhuri | 103   |
+| pramod  | 104   |
+| sandip  | 105   |
++---------+-------+
+6 rows in set (0.00 sec)
+
+7)
+mysql> select cname from customer where city= "nagpur";
++---------+
+| cname   |
++---------+
+| madhuri |
+| pramod  |
++---------+
+2 rows in set (0.01 sec)
+
+8)
+mysql> select cname from deposit where adate="1995-11-17";
++-------+
+| cname |
++-------+
+| rahul |
++-------+
+1 row in set (0.01 sec)
+
+9)mysql> select actno,amount from deposit where adate BETWEEN "1995-12-01" AND "1996-06-01";
++-------+--------+
+| actno | amount |
++-------+--------+
+| 101   |   5000 |
+| 103   |   1200 |
+| 104   |   3000 |
+| 105   |   2000 |
++-------+--------+
+4 rows in set (0.01 sec)
+
+10)
+mysql> select * from deposit where cname LIKE "c%";
+Empty set (0.01 sec)
+
+11)
+mysql> select * from deposit where cname LIKE "_u%";
++-------+-------+--------+--------+------------+
+| ACTNO | CNAME | BNAME  | AMOUNT | ADATE      |
++-------+-------+--------+--------+------------+
+| 101   | sunil | mgroad |   5000 | 1996-01-04 |
++-------+-------+--------+--------+------------+
+
+12)
+mysql> select * from deposit where bname IN("chandni","mgroad");
++-------+---------+---------+--------+------------+
+| ACTNO | CNAME   | BNAME   | AMOUNT | ADATE      |
++-------+---------+---------+--------+------------+
+| 101   | sunil   | mgroad  |   5000 | 1996-01-04 |
+| 103   | madhuri | chandni |   1200 | 1995-12-17 |
+| 104   | pramod  | mgroad  |   3000 | 1996-03-27 |
++-------+---------+---------+--------+------------+
+
+
+13)
+mysql> select * from deposit where bname NOT IN("chandni","mgroad");
++-------+--------+-----------+--------+------------+
+| ACTNO | CNAME  | BNAME     | AMOUNT | ADATE      |
++-------+--------+-----------+--------+------------+
+| 100   | anil   | vrce      |  10000 | 1995-03-01 |
+| 102   | rahul  | karolbagh |   3500 | 1995-11-17 |
+| 105   | sandip | karolbagh |   2000 | 1996-03-31 |
++-------+--------+-----------+--------+------------+
+
+14)
+mysql> select * from deposit ORDER BY  Amount;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 103   | madhuri | chandni   |   1200 | 1995-12-17 |
+| 105   | sandip  | karolbagh |   2000 | 1996-03-31 |
+| 104   | pramod  | mgroad    |   3000 | 1996-03-27 |
+| 102   | rahul   | karolbagh |   3500 | 1995-11-17 |
+| 101   | sunil   | mgroad    |   5000 | 1996-01-04 |
+| 100   | anil    | vrce      |  10000 | 1995-03-01 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.02 sec)
+
+15)
+mysql> select * from deposit ORDER BY  Amount desc;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 100   | anil    | vrce      |  10000 | 1995-03-01 |
+| 101   | sunil   | mgroad    |   5000 | 1996-01-04 |
+| 102   | rahul   | karolbagh |   3500 | 1995-11-17 |
+| 104   | pramod  | mgroad    |   3000 | 1996-03-27 |
+| 105   | sandip  | karolbagh |   2000 | 1996-03-31 |
+| 103   | madhuri | chandni   |   1200 | 1995-12-17 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.01 sec)
+
+
+16)
+mysql> select * from deposit where cname LIKE"__a%" OR  cname LIKE "__d%";
++-------+---------+---------+--------+------------+
+| ACTNO | CNAME   | BNAME   | AMOUNT | ADATE      |
++-------+---------+---------+--------+------------+
+| 103   | madhuri | chandni |   1200 | 1995-12-17 |
+| 104   | pramod  | mgroad  |   3000 | 1996-03-27 |
++-------+---------+---------+--------+------------+
+2 rows in set (0.00 sec)
+
+17)
+mysql> select * from borrow where amount NOT BETWEEN 2000 AND 8000;
++--------+-------+-------+--------+
+| LOANNO | CNAME | BNAME | AMOUNT |
++--------+-------+-------+--------+
+| 201    | anil  | vrce  |  10000 |
++--------+-------+-------+--------+
+
+18)mysql> select * from deposit group by bname ;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 100   | anil    | vrce      |  11000 | 1995-03-01 |
+| 101   | sunil   | mgroad    |   5000 | 1996-01-04 |
+| 102   | rahul   | karolbagh |   3500 | 1995-11-17 |
+| 103   | madhuri | chandni   |   1200 | 1995-12-17 |
++-------+---------+-----------+--------+------------+
+
+19)
+mysql> update deposit set amount=amount * 1.1 where bname = "VRCE";
+mysql> select * from deposit ;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 100   | anil    | vrce      |  11000 | 1995-03-01 |
+| 101   | sunil   | mgroad    |   5000 | 1996-01-04 |
+| 102   | rahul   | karolbagh |   3500 | 1995-11-17 |
+| 103   | madhuri | chandni   |   1200 | 1995-12-17 |
+| 104   | pramod  | mgroad    |   3000 | 1996-03-27 |
+| 105   | sandip  | karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+20)mysql> update deposit set amount=amount * 1.1 where bname = "VRCE" AND cname="anil";
+mysql> select * from deposit ;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 100   | anil    | vrce      |  11000 | 1995-03-01 |
+| 101   | sunil   | mgroad    |   5000 | 1996-01-04 |
+| 102   | rahul   | karolbagh |   3500 | 1995-11-17 |
+| 103   | madhuri | chandni   |   1200 | 1995-12-17 |
+| 104   | pramod  | mgroad    |   3000 | 1996-03-27 |
+| 105   | sandip  | karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------
+===================================================================================================
+
+
+
+
+
+
+                                                 2
+---------------------------------------------------------------------------------------------------
+mysql> DESC STUDENT;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| NAME   | varchar(20) | YES  |     | NULL    |       |
+| ROLLNO | int         | YES  |     | NULL    |       |
+| BRANCH | varchar(20) | YES  |     | NULL    |       |
+| CITY   | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.08 sec)
+
+mysql> SELECT * FROM STUDENT;
++--------+--------+--------+---------+
+| NAME   | ROLLNO | BRANCH | CITY    |
++--------+--------+--------+---------+
+| VIJAYA |    150 | CSE    | CHENNAI |
+| SITA   |    202 | ETC    | KOLKATA |
+| RAVI   |    300 | EEE    | DELHI   |
+| BASU   |    165 | ETC    | CHENNAI |
+| RASMI  |    107 | ETC    | RKL     |
+| KARAN  |    111 | CSE    | CTC     |
+| REKHA  |    117 | BME    | BBSR    |
++--------+--------+--------+---------+
+7 rows in set (0.00 sec)
+
+1)
+mysql> SELECT COUNT(NAME),BRANCH FROM STUDENT GROUP BY BRANCH;
++-------------+--------+
+| COUNT(NAME) | BRANCH |
++-------------+--------+
+|           2 | CSE    |
+|           3 | ETC    |
+|           1 | EEE    |
+|           1 | BME    |
++-------------+--------+
+4 rows in set (0.00 sec)
+
+2)mysql> SELECT COUNT(NAME),BRANCH FROM STUDENT GROUP BY BRANCH HAVING BRANCH  LIKE "E%";
++-------------+--------+
+| COUNT(NAME) | BRANCH |
++-------------+--------+
+|           3 | ETC    |
+|           1 | EEE    |
++-------------+--------+
+
+3)
+mysql> ALTER TABLE STUDENT ADD MARKS INT;
+Query OK, 0 rows affected (0.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM STUDENT;
++--------+--------+--------+---------+-------+
+| NAME   | ROLLNO | BRANCH | CITY    | MARKS |
++--------+--------+--------+---------+-------+
+| VIJAYA |    150 | CSE    | CHENNAI |  NULL |
+| SITA   |    202 | ETC    | KOLKATA |  NULL |
+| RAVI   |    300 | EEE    | DELHI   |  NULL |
+| BASU   |    165 | ETC    | CHENNAI |  NULL |
+| RASMI  |    107 | ETC    | RKL     |  NULL |
+| KARAN  |    111 | CSE    | CTC     |  NULL |
+| REKHA  |    117 | BME    | BBSR    |  NULL |
++--------+--------+--------+---------+-------+
+7 rows in set (0.00 sec)
+
+
+4)
+mysql> ALTER TABLE STUDENT MODIFY NAME VARCHAR(25);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC STUDENT;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| NAME   | varchar(25) | YES  |     | NULL    |       |
+| ROLLNO | int         | YES  |     | NULL    |       |
+| BRANCH | varchar(20) | YES  |     | NULL    |       |
+| CITY   | varchar(20) | YES  |     | NULL    |       |
+| MARKS  | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.07 sec)
+
+5)
+mysql> DELETE FROM STUDET WHERE BRANCH="ETC";
+ERROR 1146 (42S02): Table 'masai1.studet' doesn't exist
+mysql> DELETE FROM STUDENT WHERE BRANCH="ETC";
+Query OK, 3 rows affected (0.01 sec)
+
+mysql> SELECT * FROM STUDENT;
++--------+--------+--------+---------+-------+
+| NAME   | ROLLNO | BRANCH | CITY    | MARKS |
++--------+--------+--------+---------+-------+
+| VIJAYA |    150 | CSE    | CHENNAI |  NULL |
+| RAVI   |    300 | EEE    | DELHI   |  NULL |
+| KARAN  |    111 | CSE    | CTC     |  NULL |
+| REKHA  |    117 | BME    | BBSR    |  NULL |
++--------+--------+--------+---------+-------+
+4 rows in set (0.00 sec)
+
+6)
+mysql> DESC STUDINFORMATION;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| NAME   | varchar(25) | YES  |     | NULL    |       |
+| ROLLNO | int         | YES  |     | NULL    |       |
+| BRANCH | varchar(20) | YES  |     | NULL    |       |
+| CITY   | varchar(20) | YES  |     | NULL    |       |
+| MARKS  | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+7)mysql> SELECT * FROM STUDENT;
+ERROR 1146 (42S02): Table 'masai1.student' doesn't exist
+mysql> SELECT * FROM STUDINFORMATION;
+Empty set (0.00 sec)
+
+8)
+mysql> DROP TABLE STUDINFORMATION;
+Query OK, 0 rows affected (0.07 sec)
+
+
